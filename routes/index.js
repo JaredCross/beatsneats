@@ -3,6 +3,13 @@ var router = express.Router();
 var bcrypt = require('bcryptjs')
 var db = require('./../models');
 var unirest = require('unirest');
+var yelp = require('yelp').createClient({
+  consumer_key: process.env.YELP_CONSUMERKEY,
+  consumer_secret: process.env.YELP_CONSUMERSECRET,
+  token: process.env.YELP_TOKEN,
+  token_secret: process.env.YELP_TOKENSECRET
+})
+
 
 //Home Page
 router.get('/', function(req, res, next) {
@@ -11,7 +18,7 @@ router.get('/', function(req, res, next) {
   } else {
     var fullName = null;
   }
-      res.render('index', {fullName: fullName});
+      res.render('index', {fullName: fullName,});
 });
 
 
@@ -19,15 +26,15 @@ router.get('/', function(req, res, next) {
 router.post('/help', function (req,res,next){
   unirest.get('http://api.songkick.com/api/3.0/search/locations.json?query='+ req.body.city+ '&apikey='+ process.env.SONGKICK_API)
   .end(function (response) {
-    console.log(response.body.resultsPage.results.location[0].metroArea.id)
     var cityId = response.body.resultsPage.results.location[0].metroArea.id;
     unirest.get('http://api.songkick.com/api/3.0/metro_areas/'+ cityId + '/calendar.json?apikey=' + process.env.SONGKICK_API)
     .end(function (response) {
-      console.log(response.body.resultsPage.results.event)
       var response = response.body.resultsPage.results.event
-      res.render('index', {musicEvents: response});
+      yelp.search({term:'food', location: req.body.city}, function (error,data) {
+        var restaurants = data.businesses
+        res.render('index', {musicEvents: response, restaurants: restaurants, city: req.body.city, state: req.body.state});
+      })
     })
-
 });
 });
 
