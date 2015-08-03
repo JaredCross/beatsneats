@@ -10,7 +10,7 @@ var yelp = require('yelp').createClient({
   token_secret: process.env.YELP_TOKENSECRET
 })
 
-
+var weatherParser = require('./../lib/server.js')
 //Home Page
 router.get('/', function(req, res, next) {
   if (req.session) {
@@ -29,14 +29,21 @@ router.post('/help', function (req,res,next){
     var cityId = response.body.resultsPage.results.location[0].metroArea.id;
     unirest.get('http://api.songkick.com/api/3.0/metro_areas/'+ cityId + '/calendar.json?apikey=' + process.env.SONGKICK_API)
     .end(function (response) {
-      var response = response.body.resultsPage.results.event
+      var musicEvents = response.body.resultsPage.results.event
       yelp.search({term:'food', location: req.body.city}, function (error,data) {
         var restaurants = data.businesses
-        res.render('index', {musicEvents: response, restaurants: restaurants, city: req.body.city, state: req.body.state});
+        unirest.post('http://api.openweathermap.org/data/2.5/forecast?q='+req.body.city+',us')
+        .send()
+        .end(function (response) {
+          var weather = weatherParser(response);
+          res.render('index', {musicEvents: musicEvents, restaurants: restaurants, city: req.body.city, state: req.body.state, weather: weather});
+        });
       })
     })
 });
 });
+
+
 
 
 router.post('/login', function (req,res,next){

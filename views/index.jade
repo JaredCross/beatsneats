@@ -5,7 +5,6 @@ block content
     div.container 
       form.main(action='/help' method='post')
         h1 Where are you traveling?
-        
         label(for='city') City
         input(type='text' name='city' id='city' value=(city)?'#{city}':"")
         
@@ -21,6 +20,12 @@ block content
       div.left
         div.musicTile 
         div.musicResponse
+        input(type='text' name='city' id='city')
+        input(type='submit' value='Help!' )
+    div.tileBlock
+      div.musicTile 
+      div.response
+        if musicEvents
           each event in musicEvents
             form(action='/user/list' method='post')
               div.event
@@ -39,4 +44,12 @@ block content
                 a(href=biz.url)= biz.name + " " + biz.rating
                 
   script(src='/js/client.js')
+    .weather
+      if weather
+        for day in weather
+          p=day[0]
+          for time in day[1]
+            p=time[0]
+            p=time[1][0]
+            p=time[1][1]
         
