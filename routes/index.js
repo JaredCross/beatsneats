@@ -18,20 +18,17 @@ router.get('/', function(req, res, next) {
 router.post('/help', function (req,res,next){
   unirest.get('http://api.songkick.com/api/3.0/search/locations.json?query='+ req.body.city+ '&apikey='+ process.env.SONGKICK_API)
   .end(function (response) {
-    console.log(response.body.resultsPage.results.location[0].metroArea.id)
     var cityId = response.body.resultsPage.results.location[0].metroArea.id;
     unirest.get('http://api.songkick.com/api/3.0/metro_areas/'+ cityId + '/calendar.json?apikey=' + process.env.SONGKICK_API)
     .end(function (response) {
-      console.log(response.body.resultsPage.results.event)
-      var response = response.body.resultsPage.results.event
-      res.render('index', {musicEvents: response});
+      var musicEvents = response.body.resultsPage.results.event
+      unirest.post('http://api.openweathermap.org/data/2.5/forecast?q='+req.body.city+',us')
+      .send()
+      .end(function (response) {
+        var weather = weatherParser(response);
+        res.render('index', {musicEvents: musicEvents, weather: weather});
+      });
     })
-  });
-  unirest.post('http://api.openweathermap.org/data/2.5/forecast?q=denver,us')
-  .send()
-  .end(function (response) {
-    var weather = weatherParser(response);
-    res.render('index', {weather: weather});
   });
 });
 
