@@ -3,8 +3,14 @@ var router = express.Router();
 var bcrypt = require('bcryptjs')
 var db = require('./../models');
 var unirest = require('unirest');
-var weatherParser = require('./../lib/server.js')
+var yelp = require('yelp').createClient({
+  consumer_key: process.env.YELP_CONSUMERKEY,
+  consumer_secret: process.env.YELP_CONSUMERSECRET,
+  token: process.env.YELP_TOKEN,
+  token_secret: process.env.YELP_TOKENSECRET
+})
 
+var weatherParser = require('./../lib/server.js')
 //Home Page
 router.get('/', function(req, res, next) {
   if (req.session) {
@@ -12,8 +18,10 @@ router.get('/', function(req, res, next) {
   } else {
     var fullName = null;
   }
-      res.render('index', {fullName: fullName});
+      res.render('index', {fullName: fullName,});
 });
+
+
 
 router.post('/help', function (req,res,next){
   unirest.get('http://api.songkick.com/api/3.0/search/locations.json?query='+ req.body.city+ '&apikey='+ process.env.SONGKICK_API)
@@ -22,15 +30,21 @@ router.post('/help', function (req,res,next){
     unirest.get('http://api.songkick.com/api/3.0/metro_areas/'+ cityId + '/calendar.json?apikey=' + process.env.SONGKICK_API)
     .end(function (response) {
       var musicEvents = response.body.resultsPage.results.event
-      unirest.post('http://api.openweathermap.org/data/2.5/forecast?q='+req.body.city+',us')
-      .send()
-      .end(function (response) {
-        var weather = weatherParser(response);
-        res.render('index', {musicEvents: musicEvents, weather: weather});
-      });
+      yelp.search({term:'food', location: req.body.city}, function (error,data) {
+        var restaurants = data.businesses
+        unirest.post('http://api.openweathermap.org/data/2.5/forecast?q='+req.body.city+',us')
+        .send()
+        .end(function (response) {
+          var weather = weatherParser(response);
+          res.render('index', {musicEvents: musicEvents, restaurants: restaurants, city: req.body.city, state: req.body.state, weather: weather});
+        });
+      })
     })
   });
 });
+
+
+
 
 router.post('/login', function (req,res,next){
   var email = req.body.email;

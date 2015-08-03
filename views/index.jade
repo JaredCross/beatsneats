@@ -2,26 +2,13 @@ extends layout
 
 block content
   main 
-    .container 
-      form(action='/help' method='post')
+    div.container 
+      form.main(action='/help' method='post')
         h1 Where are you traveling?
         label(for='city') City
-        input(type='text' name='city' id='city')
+        input(type='text' name='city' id='city' value=(city)?'#{city}':"")
         input(type='submit' value='Help!' )
-    div.tileBlock
-      div.musicTile 
-      div.response
-        if musicEvents
-          each event in musicEvents
-            form(action='/user/list' method='post')
-              div.event
-                p 
-                  a(href=event.uri) #{event.displayName}
-                  input(type='hidden' value=event.uri)
-                  input(type='hidden' value=event.displayName)
-                  input(type='submit' value='Save Event')
-      div.foodTile
-    .weather
+    div.weather
       if weather
         for day in weather
           p=day[0]
@@ -29,4 +16,20 @@ block content
             p=time[0]
             p=time[1][0]
             p=time[1][1]
-        
+    div.tileBlock
+      if musicEvents
+          div.left
+            div.musicTile 
+            div.musicResponse
+              each event in musicEvents
+                div.event
+                  p 
+                    a(href=event.uri) #{event.displayName}
+      if restaurants
+        div.right
+          div.foodTile
+          div.foodResponse 
+            each biz in restaurants
+              div.event
+                p
+                  a(href=biz.url)= biz.name + " " + biz.rating
