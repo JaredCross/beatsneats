@@ -13,9 +13,12 @@ router.get('/', function(req, res, next) {
   res.render('index', {fullName: fullName});
 });
 
+
+
 router.post('/help', function (req,res,next){
   res.render('index');
 });
+
 
 router.post('/login', function (req,res,next){
   var email = req.body.email;
