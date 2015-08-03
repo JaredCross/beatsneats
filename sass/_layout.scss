@@ -1,3 +1,47 @@
 body {
-  
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+
+}
+
+a {
+  color: #00B7FF;
+}
+
+ /*Header CSS */
+
+header{
+  width: 100%;
+  background-color: orange;
+  height: 50px;
+
+}
+
+header .container{
+  background-color: orange;
+}
+
+main{
+  width: 100%;
+  padding: 1%;
+
+}
+
+main .container{
+}
+
+footer{
+  width: 100%;
+  background-color: green;
+
+}
+
+footer .container{
+  background-color: green;
+}
+
+.container{
+  width: 960px;
+  margin: 0 auto;
 }

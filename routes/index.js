@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var bcrypt = require('bcryptjs')
 var db = require('./../models');
+var unirest = require('unirest');
 
 //Home Page
 router.get('/', function(req, res, next) {
@@ -16,6 +17,7 @@ router.get('/', function(req, res, next) {
 
 
 router.post('/help', function (req,res,next){
+  unirest.get()
   res.render('index');
 });
 
