@@ -5,19 +5,12 @@ block content
     .container 
       form(action='/help' method='post')
         h1 Where are you traveling?
-        
         label(for='city') City
         input(type='text' name='city' id='city')
-        
         label(for='state') State
         input(type='text' name='state' id='state')
-    
         input(type='submit' value='Help!' )
-    
-    
-    
     div.tileBlock
-      
       div.musicTile 
       div.response
         if musicEvents
@@ -30,5 +23,12 @@ block content
                   input(type='hidden' value=event.displayName)
                   input(type='submit' value='Save Event')
       div.foodTile
-  script(src='/js/client.js')
+    .weather
+      if weather
+        for day in weather
+          p=day[0]
+          for time in day[1]
+            p=time[0]
+            p=time[1][0]
+            p=time[1][1]
         

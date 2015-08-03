@@ -3,6 +3,7 @@ var router = express.Router();
 var bcrypt = require('bcryptjs')
 var db = require('./../models');
 var unirest = require('unirest');
+var weatherParser = require('./../lib/server.js')
 
 //Home Page
 router.get('/', function(req, res, next) {
@@ -25,8 +26,13 @@ router.post('/help', function (req,res,next){
       var response = response.body.resultsPage.results.event
       res.render('index', {musicEvents: response});
     })
-
-});
+  });
+  unirest.post('http://api.openweathermap.org/data/2.5/forecast?q=denver,us')
+  .send()
+  .end(function (response) {
+    var weather = weatherParser(response);
+    res.render('index', {weather: weather});
+  });
 });
 
 router.post('/login', function (req,res,next){
