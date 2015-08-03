@@ -4,14 +4,31 @@ block content
   main 
     .container 
       form(action='/help' method='post')
-        label(for = 'location') Where are you traveling?
-        input(type='text' name='location' id='location')
+        h1 Where are you traveling?
         
-        label(for='departDate') Departure Date 
-        input(type='date' name='departDate' id='departDate')
+        label(for='city') City
+        input(type='text' name='city' id='city')
         
-        label(for='arrivalDate') Arrival Date  
-        input(type='date' name='arrivalDate' id='arrivalDate')
-        
+        label(for='state') State
+        input(type='text' name='state' id='state')
+    
         input(type='submit' value='Help!' )
+    
+    
+    
+    div.tileBlock
+      
+      div.musicTile 
+      div.response
+        if musicEvents
+          each event in musicEvents
+            form(action='/user/list' method='post')
+              div.event
+                p 
+                  a(href=event.uri) #{event.displayName}
+                  input(type='hidden' value=event.uri)
+                  input(type='hidden' value=event.displayName)
+                  input(type='submit' value='Save Event')
+      div.foodTile
+  script(src='/js/client.js')
         

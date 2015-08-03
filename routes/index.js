@@ -11,12 +11,22 @@ router.get('/', function(req, res, next) {
   } else {
     var fullName = null;
   }
-  res.render('index', {fullName: fullName});
+      res.render('index', {fullName: fullName});
 });
 
 router.post('/help', function (req,res,next){
-  unirest.get()
-  res.render('index');
+  unirest.get('http://api.songkick.com/api/3.0/search/locations.json?query='+ req.body.city+ '&apikey='+ process.env.SONGKICK_API)
+  .end(function (response) {
+    console.log(response.body.resultsPage.results.location[0].metroArea.id)
+    var cityId = response.body.resultsPage.results.location[0].metroArea.id;
+    unirest.get('http://api.songkick.com/api/3.0/metro_areas/'+ cityId + '/calendar.json?apikey=' + process.env.SONGKICK_API)
+    .end(function (response) {
+      console.log(response.body.resultsPage.results.event)
+      var response = response.body.resultsPage.results.event
+      res.render('index', {musicEvents: response});
+    })
+
+});
 });
 
 router.post('/login', function (req,res,next){
