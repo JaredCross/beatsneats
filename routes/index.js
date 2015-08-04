@@ -34,7 +34,7 @@ router.post('/help', function (req,res,next){
     var restaurants = results[4].businesses;
     var weather = results[5];
     var musicEvent5DaysArr = eventParse(results[0],results[1],results[2],results[3]);
-    res.render('index', {musicEvents: musicEvent5DaysArr, restaurants: restaurants, city: req.body.city, state: req.body.state, weather: weather, display: JSON.stringify(weather)});
+    res.render('index', {musicEvents: musicEvent5DaysArr, restaurants: restaurants, city: req.body.city, state: req.body.state, weather: weather});
   });
 });
 

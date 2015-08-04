@@ -9,8 +9,6 @@ block content
         input(type='text' name='city' id='city' value=(city)?'#{city}':"")
         input(type='submit' value='Help!' )
     button.md-trigger(data-modal="modal-1") BUTTON
-    div.show
-      !{display}
     div.weather
       if weather
         for day, index in weather
