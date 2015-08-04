@@ -8,14 +8,26 @@ block content
         label(for='city') City
         input(type='text' name='city' id='city' value=(city)?'#{city}':"")
         input(type='submit' value='Help!' )
+    button.md-trigger(data-modal="modal-1") BUTTON
+    div.show
+      !{display}
     div.weather
       if weather
-        for day in weather
-          p=day[0]
-          for time in day[1]
-            p=time[0]
-            p=time[1][0]
-            p=time[1][1]
+        for day, index in weather
+          div(class='md-modal md-effect-1' id=(('modal-'+ (index + 1))))
+            div(class='md-content')
+              h3=day[0]
+              div
+                p=day[1][0][1][0]
+                button.md-close Close me!
+          div.md-trigger.day(data-modal=(('modal-'+ (index + 1))))
+            p=day[0]
+            p=day[1][0][1][0]
+            //- p=day[0]
+            //- for time in day[1]
+            //-   p=time[0]
+            //-   p=time[1][0]
+            //-   p=time[1][1]
     div.tileBlock
       if musicEvents
           div.left

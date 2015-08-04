@@ -122,3 +122,9 @@ footer .container {
 
 input {
   color: blue; }
+
+.day {
+  width: 20%;
+  height: 200px;
+  background: green;
+  display: inline-block; }
