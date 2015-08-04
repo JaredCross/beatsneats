@@ -18,7 +18,8 @@ block content
             div(class='md-content')
               h3=day[0]
               div
-                p=day[1][0][1][0]
+                //- for time in day[0]
+                //- p=day[1][0][1][0]
                 button.md-close Close me!
           div.md-trigger.day(data-modal=(('modal-'+ (index + 1))))
             p=day[0]
