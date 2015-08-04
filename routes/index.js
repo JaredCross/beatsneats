@@ -16,8 +16,6 @@ router.get('/', function(req, res, next) {
       res.render('index', {fullName: fullName,});
 });
 
-
-
 router.post('/help', function (req,res,next){
   if (req.body.city.trim() != '') {
    promises.cityIdPromFunc(req.body.city).then(function (data) {
@@ -51,9 +49,6 @@ router.post('/help', function (req,res,next){
  }
 });
 
-
-
-
 router.post('/login', function (req,res,next){
   var email = req.body.email;
   var password = req.body.password;
@@ -74,17 +69,52 @@ router.get('/user/new', function(req,res,next){
   res.render('users/new');
 });
 
+router.get('/music', function (req, res, next) {
+  console.log('here?');
+  console.log(req.query.info);
+  var response = {'hello': 'hi'};
+  req.json(response);
+  // var user = req.query.user;
+  // var bookmark = req.query.bookmark;
+  // var checked = req.query.checked;
+  // if (checked === 'yes') {
+  //   db.Users.update({_id: user}, {$push: {favorites: music}}).then(function (data) {
+  //   })
+  // } else {
+  //   db.Users.update({_id: user}, {$pull: {favorites: music}}).then(function (data) {
+  //   })
+  // }
+})
+
+router.get('/food', function (req, res, next) {
+  console.log('here?');
+  console.log(req.query);
+  var response = {'hello': 'hi'};
+  req.json(response);
+  // var user = req.query.user;
+  //   var bookmark = req.query.bookmark;
+  //   var checked = req.query.checked;
+  //   if (checked === 'yes') {
+  //     db.Users.update({_id: user}, {$push: {favorites: food}}).then(function (data) {
+  //     })
+  //   } else {
+  //     db.Users.update({_id: user}, {$pull: {favorites: food}}).then(function (data) {
+  //     })
+  //   }
+})
+
 router.post('/user', function(req,res,next){
-  var fullName = req.body.fullName;
-  var email = req.body.email;
-  var password = req.body.password;
-  var hash = bcrypt.hashSync(password, 8);
-  db.Users.create({fullName: fullName, email: email, password: hash, destinations: []}).then(function () {
-    req.session.fullName = fullName;
-    res.redirect('/');
-  });
+  console.log(req.query);
+  var response = {'hello': 'hi'};
+  req.json(response);
+  // var fullName = req.body.fullName;
+  // var email = req.body.email;
+  // var password = req.body.password;
+  // var hash = bcrypt.hashSync(password, 8);
+  // db.Users.create({email: email, password: hash, favoritesMusic: [], favoritesFood: []}).then(function () {
+  //   req.session.fullName = fullName;
+  //   res.redirect('/');
+  // });
 });
-
-
 
 module.exports = router;

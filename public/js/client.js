@@ -1,3 +1,7 @@
+$( document ).ready(function() {
+  
+});
+
 var musicTile = document.querySelector('.musicTile');
 var musicResponse = document.querySelector('.musicResponse');
 var musicToggle = 0;
