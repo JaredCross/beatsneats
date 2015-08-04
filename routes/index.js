@@ -19,23 +19,36 @@ router.get('/', function(req, res, next) {
 
 
 router.post('/help', function (req,res,next){
-  promises.cityIdPromFunc(req.body.city).then(function (data) {
-    var cityId = data.body.resultsPage.results.location[0].metroArea.id;
-    return Promise.all(
-      [
-        promises.musicEventPromFuncPage1(cityId),
-        promises.musicEventPromFuncPage2(cityId),
-        promises.musicEventPromFuncPage3(cityId),
-        promises.musicEventPromFuncPage4(cityId),
-        promises.yelpPromFunc(req.body.city),
-        promises.weatherPromFunc(req.body.city)
-      ]);
-  }).then(function (results) {
-    var restaurants = results[4].businesses;
-    var weather = results[5];
-    var musicEvent5DaysArr = eventParse(results[0],results[1],results[2],results[3]);
-    res.render('index', {musicEvents: musicEvent5DaysArr, restaurants: restaurants, city: req.body.city, state: req.body.state, weather: weather});
-  });
+  if (req.body.city.trim() != '') {
+   promises.cityIdPromFunc(req.body.city).then(function (data) {
+     if (data.body.resultsPage.results.location) {
+       var cityId = data.body.resultsPage.results.location[0].metroArea.id;
+     } else {
+       var cityId = 0;
+     }
+     if (cityId != 0) {
+       Promise.all(
+       [
+         promises.musicEventPromFuncPage1(cityId),
+         promises.musicEventPromFuncPage2(cityId),
+         promises.musicEventPromFuncPage3(cityId),
+         promises.musicEventPromFuncPage4(cityId),
+         promises.yelpPromFunc(req.body.city),
+         promises.weatherPromFunc(req.body.city)
+       ])
+     .then(function (results) {
+     var restaurants = results[4].businesses;
+     var weather = results[5];
+     var musicEvent5DaysArr = eventParse(results[0],results[1],results[2],results[3]);
+     res.render('index', {musicEvents: musicEvent5DaysArr, restaurants: restaurants, city: req.body.city, weather: weather});
+   });
+   } else {
+     res.render('index', {error: "City isn't valid", city: req.body.city});
+   }
+   });
+ } else {
+   res.render('index', {error: "City isn't valid", city: req.body.city});
+ }
 });
 
 

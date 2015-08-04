@@ -92,24 +92,29 @@ a {
   color: #00B7FF; }
 
 /*Header CSS */
+.contained {
+  margin: 0 auto;
+  width: 960px; }
+  .contained h2, .contained form {
+    display: inline-block; }
+  .contained h2 {
+    margin: 0;
+    float: left; }
+
 header {
   width: 100%;
-  background-color: orange;
   height: 50px; }
-
-header .container {
-  background-color: orange; }
 
 footer {
   width: 100%;
   background-color: green; }
 
-footer .container {
+footer .contained {
   background-color: green; }
 
 .main {
+  width: 100%;
   margin: 0 auto;
-  border: 2px solid blue;
   text-align: center;
   padding-top: 2%;
   padding-bottom: 2%; }
@@ -157,24 +162,38 @@ footer .container {
   border: 1px solid red;
   cursor: pointer; }
 
+.nav {
+  float: right; }
+
 input {
-  color: blue; }
+  color: #656278; }
 
 .day {
+  margin-left: 2%;
   color: white;
   padding-left: 2%;
   width: 15%;
   height: 150px;
-  background: #FFBC42;
   display: inline-block; }
+  .day h4, .day p {
+    margin: 0; }
+
+.md-trigger {
+  cursor: pointer; }
 
 .weather {
+  background: #F24F52;
   margin: auto 0;
-  width: auto; }
+  width: auto;
+  border: 1px solid #656278;
+  border-radius: 20px; }
 
 .md-close {
   cursor: pointer;
   text-align: right; }
+
+td {
+  text-align: left; }
 
 .weatherTable {
   width: 100%; }
@@ -185,5 +204,18 @@ input {
     width: 20%; }
 
 .big {
-  padding-left: 15%;
-  font-size: 200%; }
+  color: white;
+  font-size: 200%;
+  display: inline-block; }
+
+.big2 {
+  float: right;
+  color: white;
+  font-size: 200%;
+  display: inline-block; }
+
+.image {
+  float: left;
+  padding-right: 5%;
+  width: 100px;
+  height: 100px; }

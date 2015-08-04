@@ -2,33 +2,66 @@ extends layout
 
 block content
   main 
-    div.container 
+    div.contained
+      .nav
+        span.md-trigger(data-modal=('modal-6')) login 
+        span.md-trigger(data-modal=('modal-7')) signup 
       form.main(action='/help' method='post')
         h1 Where are you traveling?
-        label(for='city') City
-        input(type='text' name='city' id='city' value=(city)?'#{city}':"")
+        input(type='text' name='city' id='city' placeholder='city' value=(city)?'#{city}':"")
         input(type='submit' value='Help!' )
-    button.md-trigger(data-modal="modal-1") BUTTON
-    div.weather
-      if weather
-        for day, index in weather
-          div(class='md-modal md-effect-1' id=(('modal-'+ (index + 1))))
-            div(class='md-content')
-              h3=day[0]
-              div
-                for time in day[1]
-                  table.weatherTable
-                    tr
-                      td
-                        span=time[0]
-                      td
-                        span.big=time[1][0]
-                      td
-                        span=time[1][1]
-              div.md-close X
-          div.md-trigger.day(data-modal=(('modal-'+ (index + 1))))
-            h4=day[0]
-            p.big=day[1][0][1][0]
+      div.weather
+        if weather
+          for day, index in weather
+            div(class='md-modal md-effect-1' id=(('modal-'+ (index + 1))))
+              div(class='md-content')
+                h3=day[0]
+                div
+                  for time in day[1]
+                    table.weatherTable
+                      tr
+                        td
+                          span=time[0]
+                        td
+                          span.big=time[1][0]
+                        td
+                          span=time[1][1]
+                div.md-close X
+            div.md-trigger.day(data-modal=(('modal-'+ (index + 1))))
+              p.big2=day[1][0][1][0]
+              h4=day[0]
+              img.image(src=(day[1][0][1][1] === "sky is clear" ? 'images/weather/sunny.png' : day[1][0][1][1] === "light rain" ? '/images/weather/partlyrainy.png' : '/images/weather/clouded.png'))
+      div(class='md-modal md-effect-1' id=('modal-6'))
+        div(class='md-content')
+          h3 login
+          div.form
+            form(action='/login', method='post')
+              p
+                label(for='email') email 
+                input(type='text' name='email' id='email')
+              p
+                label(for='password') password 
+                input(type='password' name='password' id='password')
+              p
+                input(type='submit' value='login')
+          div.md-close X
+      div(class='md-modal md-effect-1' id=('modal-7'))
+        div(class='md-content')
+          h3 signup
+          div.form
+            form(action='/signup', method='post')
+              p
+                label(for='email') email 
+                input(type='text' name='email' id='email')
+              p
+                label(for='password') password 
+                input(type='password' name='password' id='password')
+              p
+                label(for='confirm') confirm password 
+                input(type='password' name='confirm' id='confirm')
+              p
+                input(type='submit' value='signup')
+          div.md-close X
     div.tileBlock
       if musicEvents
           div.left

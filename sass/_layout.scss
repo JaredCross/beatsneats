@@ -11,18 +11,23 @@ a {
 
  /*Header CSS */
 
+.contained {
+  margin: 0 auto;
+  width: 960px;
+  h2, form {
+    display: inline-block;
+  }
+  h2 {
+    margin: 0;
+    float:left;
+  }
+}
+
 header{
   width: 100%;
-  background-color: orange;
   height: 50px;
 
 }
-
-header .container{
-  background-color: orange;
-}
-
-
 
 footer{
   width: 100%;
@@ -30,18 +35,17 @@ footer{
 
 }
 
-footer .container{
+footer .contained{
   background-color: green;
 }
 
 
 .main{
+  width: 100%;
   margin: 0 auto;
-  border: 2px solid blue;
   text-align: center;
   padding-top: 2%;
   padding-bottom: 2%;
-
 }
 
 
@@ -74,8 +78,6 @@ footer .container{
   float: right;
 }
 
-
-
 .musicResponse {
   display: none;
   width: 100%;
@@ -96,4 +98,8 @@ footer .container{
   height: 50px;
   border: 1px solid red;
   cursor: pointer;
+}
+
+.nav {
+  float: right;
 }
