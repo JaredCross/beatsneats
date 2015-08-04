@@ -167,6 +167,24 @@ footer .contained {
 .nav {
   float: right; }
 
+.hiddenError {
+  display: none; }
+
+#modalError {
+  padding: 0;
+  color: #656278; }
+
+.hiddenError2 {
+  display: none; }
+
+.loginError {
+  padding: 0;
+  color: #656278; }
+
+#loginError {
+  padding: 0;
+  color: #656278; }
+
 input {
   color: #656278; }
 

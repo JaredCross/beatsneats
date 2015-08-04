@@ -105,3 +105,27 @@ footer .contained{
 .nav {
   float: right;
 }
+
+
+.hiddenError{
+  display: none;
+}
+
+#modalError{
+  padding: 0;
+  color: $gray;
+}
+
+.hiddenError2{
+  display: none;
+}
+
+.loginError{
+  padding:0;
+  color: $gray;
+}
+
+#loginError{
+  padding: 0;
+  color: $gray;
+}

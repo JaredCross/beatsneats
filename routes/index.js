@@ -52,12 +52,22 @@ router.post('/help', function (req,res,next){
 router.post('/login', function (req,res,next){
   var email = req.body.email;
   var password = req.body.password;
-  db.Users.findOne({email: email}).then(function (user) {
-    if (bcrypt.compareSync(password, user.password)) {
-      req.session.fullName = user.fullName;
-      res.redirect('/');
-    }
-  });
+  var error1 = 'All fields must be filled in.'
+  var error2 = 'You credential do not match, please try again.'
+
+  if(email.length < 2 || password.length <2){
+    res.render('index', {loginError: error1})
+  } else {
+    db.Users.findOne({email: email}).then(function (user) {
+      if (bcrypt.compareSync(password, user.password)) {
+        req.session.fullName = user.fullName;
+        res.redirect('/');
+      } else {
+        res.render('index', {loginError: error2})
+      }
+    });
+  }
+
 });
 
 router.get('/logout', function (req,res,next){
@@ -69,39 +79,26 @@ router.get('/user/new', function(req,res,next){
   res.render('users/new');
 });
 
-router.get('/music', function (req, res, next) {
-  console.log('here?');
-  console.log(req.query.info);
-  var response = {'hello': 'hi'};
-  req.json(response);
-  // var user = req.query.user;
-  // var bookmark = req.query.bookmark;
-  // var checked = req.query.checked;
-  // if (checked === 'yes') {
-  //   db.Users.update({_id: user}, {$push: {favorites: music}}).then(function (data) {
-  //   })
-  // } else {
-  //   db.Users.update({_id: user}, {$pull: {favorites: music}}).then(function (data) {
-  //   })
-  // }
-})
+router.post('/user/new', function(req,res,next){
+  var email = req.body.email;
+  var password = req.body.password;
+  var confirm = req.body.confirm;
+  var hash = bcrypt.hashSync(password, 8);
+  var error1 = 'All fields must be filled in.'
+  var error2 = 'Your passwords must match, please try again.'
 
-router.get('/food', function (req, res, next) {
-  console.log('here?');
-  console.log(req.query);
-  var response = {'hello': 'hi'};
-  req.json(response);
-  // var user = req.query.user;
-  //   var bookmark = req.query.bookmark;
-  //   var checked = req.query.checked;
-  //   if (checked === 'yes') {
-  //     db.Users.update({_id: user}, {$push: {favorites: food}}).then(function (data) {
-  //     })
-  //   } else {
-  //     db.Users.update({_id: user}, {$pull: {favorites: food}}).then(function (data) {
-  //     })
-  //   }
-})
+  if (email.length<4 || password.length<4 || confirm.length<4) {
+    res.render('index',{error: error1});
+  }
+  else if (confirm != password){
+    res.render('index',{error: error2});
+  } else {
+      db.Users.create({ email: email, password: hash, destinations: []}).then(function () {
+        req.session.fullName = fullName;
+        res.redirect('/');
+      });
+  }
+});
 
 router.post('/user', function(req,res,next){
   console.log(req.query);
