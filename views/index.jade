@@ -18,17 +18,19 @@ block content
             div(class='md-content')
               h3=day[0]
               div
-                //- for time in day[0]
-                //- p=day[1][0][1][0]
-                button.md-close Close me!
+                for time in day[1]
+                  table.weatherTable
+                    tr
+                      td
+                        span=time[0]
+                      td
+                        span.big=time[1][0]
+                      td
+                        span=time[1][1]
+              div.md-close X
           div.md-trigger.day(data-modal=(('modal-'+ (index + 1))))
-            p=day[0]
-            p=day[1][0][1][0]
-            //- p=day[0]
-            //- for time in day[1]
-            //-   p=time[0]
-            //-   p=time[1][0]
-            //-   p=time[1][1]
+            h4=day[0]
+            p.big=day[1][0][1][0]
     div.tileBlock
       if musicEvents
           div.left
