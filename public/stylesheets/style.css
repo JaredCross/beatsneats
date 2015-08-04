@@ -86,7 +86,9 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   padding: 0;
   margin: 0;
-  width: 100%; }
+  width: 100%;
+  background: #656278;
+  color: white; }
 
 a {
   color: #00B7FF; }
@@ -182,6 +184,7 @@ input {
   cursor: pointer; }
 
 .weather {
+  padding: 1%;
   background: #F24F52;
   margin: auto 0;
   width: auto;
