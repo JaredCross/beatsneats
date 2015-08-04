@@ -87,7 +87,12 @@ body {
   padding: 0;
   margin: 0;
   width: 100%;
+<<<<<<< HEAD
   background-color: #656278; }
+=======
+  background: #656278;
+  color: white; }
+>>>>>>> 777be905b26b180deb3614ca4f27f083792ae1f9
 
 a {
   color: #00B7FF; }
@@ -201,6 +206,7 @@ input {
   cursor: pointer; }
 
 .weather {
+  padding: 1%;
   background: #F24F52;
   margin: auto 0;
   width: auto;
