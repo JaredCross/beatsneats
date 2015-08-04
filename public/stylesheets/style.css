@@ -86,7 +86,8 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   padding: 0;
   margin: 0;
-  width: 100%; }
+  width: 100%;
+  background-color: #656278; }
 
 a {
   color: #00B7FF; }
@@ -164,6 +165,24 @@ footer .contained {
 
 .nav {
   float: right; }
+
+.hiddenError {
+  display: none; }
+
+#modalError {
+  padding: 0;
+  color: #656278; }
+
+.hiddenError2 {
+  display: none; }
+
+.loginError {
+  padding: 0;
+  color: #656278; }
+
+#loginError {
+  padding: 0;
+  color: #656278; }
 
 input {
   color: #656278; }

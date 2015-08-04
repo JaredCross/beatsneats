@@ -4,9 +4,16 @@ block content
   main 
     div.contained
       .nav
-        span.md-trigger(data-modal=('modal-6')) login 
-        span.md-trigger(data-modal=('modal-7')) signup 
+        span.md-trigger(id='login' data-modal=('modal-6')) login 
+        span.md-trigger(id='signup' data-modal=('modal-7')) signup 
       form.main(action='/help' method='post')
+        div.hiddenError
+          if error
+            p#handleError= error
+        div.hiddenError2
+          if loginError
+            p#handleError2= loginError
+          
         h1 Where are you traveling?
         input(type='text' name='city' id='city' placeholder='city' value=(city)?'#{city}':"")
         input(type='submit' value='Help!' )
@@ -35,6 +42,9 @@ block content
         div(class='md-content')
           h3 login
           div.form
+            div.loginError
+              if loginError
+                p= loginError
             form(action='/login', method='post')
               p
                 label(for='email') email 
@@ -48,8 +58,11 @@ block content
       div(class='md-modal md-effect-1' id=('modal-7'))
         div(class='md-content')
           h3 signup
+          div.signError
+            if error
+              p#modalError= error
           div.form
-            form(action='/signup', method='post')
+            form(action='/user/new', method='post')
               p
                 label(for='email') email 
                 input(type='text' name='email' id='email')
