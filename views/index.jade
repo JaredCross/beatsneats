@@ -18,7 +18,7 @@ block content
         section(id='btns-click')
           button(class='btns btns-7 btns-go btns-icon-only icon-arrow-right2' type='submit')
             span GO!
-      if !email      
+      if !email && weather
         .info Login to see get more information
       if weather
         div.weather
@@ -43,7 +43,7 @@ block content
               img.image(src=(day[1][0][1][1] === "sky is clear" ? 'images/weather/sunny.png' : day[1][0][1][1] === "light rain" ? '/images/weather/partlyrainy.png' : '/images/weather/clouded.png'))
       div(class='md-modal md-effect-1' id=('modal-6'))
         div(class='md-content')
-          h3 login
+          h3 Login
             div.md-close X
           div.form
             div.loginError
@@ -51,11 +51,11 @@ block content
                 p= loginError
             form.form-inline(action='/login', method='post')
               .col
-                label(for='email') email 
+                label(for='email') Email 
               .col
                 input.form-control(type='email' name='email' id='email')
               .col
-                label(for='password') password 
+                label(for='password') Password 
               .col
                 input.form-control(type='password' name='password' id='password')
               section(id='btns-click')
@@ -63,7 +63,7 @@ block content
                   span Login          
       div(class='md-modal md-effect-1' id=('modal-7'))
         div(class='md-content')
-          h3 signup
+          h3 Signup
             div.md-close X
           div.signError
             if error
@@ -71,15 +71,15 @@ block content
           div.form
             form.form-inline(action='/user/new', method='post')
               .col
-                label(for='email') email 
+                label(for='email') Email 
               .col
                 input.form-control(type='email' name='email' id='email')
               .col
-                label(for='password') password 
+                label(for='password') Password 
               .col
                 input.form-control(type='password' name='password' id='password')
               .col
-                label(for='confirm') confirm password 
+                label(for='confirm') Confirm Password 
               .col
                 input.form-control(type='password' name='confirm' id='confirm')
               section(id='btns-click')

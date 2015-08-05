@@ -223,10 +223,6 @@ footer .contained{
 
 }
 
-section #bttns-click {
-  display: inline-block;
-}
-
 .wrap {
   width: 100%;
   margin: 0 auto;
@@ -236,7 +232,12 @@ section #bttns-click {
   float: left;
   display: inline-block;
   padding-top: 1%;
-  float: left
+}
+
+.login-signup {
+  float: right;
+  display: inline-block;
+  padding-top: 1%;
 }
 
 form#logout {
@@ -248,12 +249,4 @@ form#logout #btns-click{
 
 ::-webkit-scrollbar {
    display: none;
-}
-
-form#logout {
-  display: inline-block;
-}
-
-form#logout #btns-click {
- float: right;
 }
