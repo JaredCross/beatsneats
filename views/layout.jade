@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title Travel Helper 
+    title Beats N Eats
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/component.css')
@@ -16,13 +16,13 @@ html
         if email
           .welcome
             span Welcome !{email}
-        .nav
-          if email
-            form#logout(action='/logout' method='link')
-              section(id='btns-click')
-                button(class='btns btns-7 btns-logout icon-key' width='100')
-                  span Logout
-          else
+        if email
+          form#logout(action='/logout' method='link')
+            section(id='btns-click')
+              button(class='btns btns-7 btns-logout icon-key' width='100')
+                span Logout
+        else
+          .welcome.nav
             span.md-trigger(id='login' data-modal=('modal-6')) login | 
             span.md-trigger(id='signup' data-modal=('modal-7')) signup 
     block content
