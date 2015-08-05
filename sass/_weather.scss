@@ -24,7 +24,12 @@
   border-radius: 20px;
 }
 
-.md-close {
+div.md-close {
+  height: auto;
+  padding: 0;
+  font-size: 50%;
+  color:white;
+  margin: 0;
   cursor: pointer;
   text-align: right;
 }

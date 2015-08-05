@@ -7,6 +7,10 @@ body {
   color: white;
 }
 
+form {
+  display: inline-block;
+}
+
 a {
   color: #00B7FF;
 }
@@ -103,7 +107,9 @@ footer .contained{
 }
 
 .nav {
-  float: right;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 
@@ -153,7 +159,7 @@ footer .contained{
   font-size: .7em;
   margin-right: 5%;
   white-space: normal;
-  background-color: $pink;
+  background-color: $gray;
   color: lightgray;
   border-radius: 15px;
   border: none;
@@ -180,7 +186,7 @@ footer .contained{
   font-size: .7em;
   margin-right: 5%;
   white-space: normal;
-  background-color: $pink;
+  background-color: $gray;
   color: lightgray;
   border-radius: 15px;
   border: none;
@@ -200,12 +206,12 @@ footer .contained{
 
 #modal-8 .md-content {
   border-radius: 15px;
-  background-color: $yellow;
+  background-color: $orange;
 }
 
 #modal-9 .md-content {
   border-radius: 15px;
-  background-color: $yellow;
+  background-color: $green;
 }
 
 .md-content .fixed {
@@ -213,15 +219,27 @@ footer .contained{
   top: 0px;
   width: 100%;
   z-index: 100;
-  background-color: #F98A40;
+  background-color: $orange;
   height: 120px;
   border-radius: 15px;
 }
 
+#modal-9 .md-content .fixed {
+  background: $green;
+}
 
 .md-content .scroll {
   height: 500px;
   overflow: scroll;
   padding-top: 125px;
 
+}
+
+section #bttns-click {
+  display: inline-block;
+}
+
+.wrap {
+  width: 100%;
+  margin: 0 auto;
 }

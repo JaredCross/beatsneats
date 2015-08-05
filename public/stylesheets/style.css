@@ -94,6 +94,9 @@ body {
   background: #656278;
   color: white; }
 
+form {
+  display: inline-block; }
+
 a {
   color: #00B7FF; }
 
@@ -169,7 +172,9 @@ footer .contained {
   cursor: pointer; }
 
 .nav {
-  float: right; }
+  position: absolute;
+  right: 0;
+  top: 0; }
 
 .hiddenError {
   display: none; }
@@ -203,7 +208,7 @@ footer .contained {
   font-size: .7em;
   margin-right: 5%;
   white-space: normal;
-  background-color: #F24F52;
+  background-color: #656278;
   color: lightgray;
   border-radius: 15px;
   border: none; }
@@ -227,7 +232,7 @@ footer .contained {
   font-size: .7em;
   margin-right: 5%;
   white-space: normal;
-  background-color: #F24F52;
+  background-color: #656278;
   color: lightgray;
   border-radius: 15px;
   border: none; }
@@ -243,11 +248,11 @@ footer .contained {
 
 #modal-8 .md-content {
   border-radius: 15px;
-  background-color: #FFBC42; }
+  background-color: #F98A40; }
 
 #modal-9 .md-content {
   border-radius: 15px;
-  background-color: #FFBC42; }
+  background-color: #339691; }
 
 .md-content .fixed {
   position: fixed;
@@ -258,10 +263,20 @@ footer .contained {
   height: 120px;
   border-radius: 15px; }
 
+#modal-9 .md-content .fixed {
+  background: #339691; }
+
 .md-content .scroll {
   height: 500px;
   overflow: scroll;
   padding-top: 125px; }
+
+section #bttns-click {
+  display: inline-block; }
+
+.wrap {
+  width: 100%;
+  margin: 0 auto; }
 
 input {
   color: #656278; }
@@ -292,6 +307,9 @@ form {
 .btn {
   margin-left: 1%; }
 
+#modal-6 .md-content, #modal-7 .md-content {
+  background: #9531B8; }
+
 .day {
   color: white;
   padding-left: 3%;
@@ -314,7 +332,12 @@ form {
   border: 1px solid #656278;
   border-radius: 20px; }
 
-.md-close {
+div.md-close {
+  height: auto;
+  padding: 0;
+  font-size: 50%;
+  color: white;
+  margin: 0;
   cursor: pointer;
   text-align: right; }
 
@@ -349,3 +372,16 @@ td {
 
 .hidden {
   display: none; }
+
+section #btns-click {
+  margin-left: 1%; }
+
+.wrap #category {
+  display: inline-block;
+  margin-left: 5%; }
+
+#logout section {
+  display: inline-block; }
+
+#title {
+  display: block; }

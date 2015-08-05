@@ -6,12 +6,12 @@ block content
       .nav
         if email
           span welcome !{email}
-          form(action='/logout' method='link')
+          form#logout(action='/logout' method='link')
             section(id='btns-click')
               button(class='btns btns-7 btns-login icon-key')
                 span Logout
         else
-          span.md-trigger(id='login' data-modal=('modal-6')) login 
+          span.md-trigger(id='login' data-modal=('modal-6')) login | 
           span.md-trigger(id='signup' data-modal=('modal-7')) signup 
       form.form-inline.main(action='/help' method='post')
         div.hiddenError
@@ -20,7 +20,8 @@ block content
         div.hiddenError2
           if loginError
             p#handleError2= loginError
-        h1 Beats N Eats
+        div#title
+          img(src='/images/banner_360.png')
         input.form-control(type='text' name='city' id='city' placeholder='city' value=(city)?'#{city}':"")
 
         if cityError
@@ -52,7 +53,7 @@ block content
       div(class='md-modal md-effect-1' id=('modal-6'))
         div(class='md-content')
           h3 login
-          div.md-close X
+            div.md-close X
           div.form
             div.loginError
               if loginError
@@ -72,6 +73,7 @@ block content
       div(class='md-modal md-effect-1' id=('modal-7'))
         div(class='md-content')
           h3 signup
+            div.md-close X
           div.signError
             if error
               p#modalError= error
@@ -92,54 +94,54 @@ block content
               section(id='btns-click')
                 button(class='btns btns-7 btns-signup icon-checkmark')
                   span Sign-Up
-          div.md-close X
-      if musicEvents
-        div.md-trigger(data-modal=('modal-8'))
-          button(class='btn btn-music icon-music')
-            span Music
-        div#modal-8.md-modal.md-effect-1
-          div.md-content
-            div.fixed
-              div.fixed-content
-                h3 Music
-                div.md-close X
-            div.scroll
-              p= musicEvents[0][0].start.date
-                each event in musicEvents[0]
-                  form.musicEventContainer(action=event.uri methos='link' target='_blank')
-                    input(type='submit' value=event.displayName)
-              if email
-                if musicEvents[1][0]
-                  p= musicEvents[1][0].start.date
-                    each event in musicEvents[1]
-                      form.musicEventContainer(action=event.uri methos='link' target='_blank')
-                        input(type='submit' value=event.displayName)
-                if musicEvents[2][0]       
-                  p= musicEvents[2][0].start.date
-                    each event in musicEvents[2]
-                      form.musicEventContainer(action=event.uri methos='link' target='_blank')
-                        input(type='submit' value=event.displayName)
-                if musicEvents[3][0]
-                  p= musicEvents[3][0].start.date
-                    each event in musicEvents[3]
-                      form.musicEventContainer(action=event.uri methos='link' target='_blank')
-                        input(type='submit' value=event.displayName)
-                if musicEvents[4][0]
-                  p= musicEvents[4][0].start.date
-                    each event in musicEvents[4]
-                      form.musicEventContainer(action=event.uri methos='link' target='_blank')
-                        input(type='submit' value=event.displayName)
-      if restaurants
-        div.md-trigger(data-modal=('modal-9'))
-          button(class='btn btn-food icon-spoon-knife')
-            span Food
-        div#modal-9.md-modal.md-effect-1
-          div.md-content
-            div.fixed
-              div.fixed-content
-                h3 Food
-                div.md-close X
-            div.scroll
-              each biz in restaurants
-                form.foodEventContainer(action=biz.url method='link' target='_blank')
-                  input(type='submit' value=biz.name + " " + biz.rating)  
+      div.wrap
+        if musicEvents
+          div#category.md-trigger(data-modal=('modal-8'))
+            button(class='btn btn-music icon-music')
+              span Music
+          div#modal-8.md-modal.md-effect-1
+            div.md-content
+              div.fixed
+                div.fixed-content
+                  h3 Music
+                    div.md-close X
+              div.scroll
+                p= musicEvents[0][0].start.date
+                  each event in musicEvents[0]
+                    form.musicEventContainer(action=event.uri methos='link' target='_blank')
+                      input(type='submit' value=event.displayName)
+                if email
+                  if musicEvents[1][0]
+                    p= musicEvents[1][0].start.date
+                      each event in musicEvents[1]
+                        form.musicEventContainer(action=event.uri methos='link' target='_blank')
+                          input(type='submit' value=event.displayName)
+                  if musicEvents[2][0]       
+                    p= musicEvents[2][0].start.date
+                      each event in musicEvents[2]
+                        form.musicEventContainer(action=event.uri methos='link' target='_blank')
+                          input(type='submit' value=event.displayName)
+                  if musicEvents[3][0]
+                    p= musicEvents[3][0].start.date
+                      each event in musicEvents[3]
+                        form.musicEventContainer(action=event.uri methos='link' target='_blank')
+                          input(type='submit' value=event.displayName)
+                  if musicEvents[4][0]
+                    p= musicEvents[4][0].start.date
+                      each event in musicEvents[4]
+                        form.musicEventContainer(action=event.uri methos='link' target='_blank')
+                          input(type='submit' value=event.displayName)
+        if restaurants
+          div#category.md-trigger(data-modal=('modal-9'))
+            button(class='btn btn-food icon-spoon-knife')
+              span Food
+          div#modal-9.md-modal.md-effect-1
+            div.md-content
+              div.fixed
+                div.fixed-content
+                  h3 Food
+                    div.md-close X
+              div.scroll
+                each biz in restaurants
+                  form.foodEventContainer(action=biz.url method='link' target='_blank')
+                    input(type='submit' value=biz.name + " " + biz.rating)  
