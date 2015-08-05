@@ -27,14 +27,16 @@ router.post('/help', function (req,res,next){
          promises.musicEventPromFuncPage2(cityId),
          promises.musicEventPromFuncPage3(cityId),
          promises.musicEventPromFuncPage4(cityId),
+         promises.musicEventPromFuncPage5(cityId),
+         promises.musicEventPromFuncPage6(cityId),
          promises.yelpPromFunc(req.body.city),
          promises.weatherPromFunc(req.body.city)
        ])
      .then(function (results) {
-     var restaurants = results[4].businesses;
-     var weather = results[5];
+     var restaurants = results[6].businesses;
+     var weather = results[7];
      var email = req.session.email;
-     var musicEvent5DaysArr = eventParse(results[0],results[1],results[2],results[3]);
+     var musicEvent5DaysArr = eventParse(results[0],results[1],results[2],results[3],results[4],results[5]);
      res.render('index', {musicEvents: musicEvent5DaysArr, restaurants: restaurants, city: req.body.city, weather: weather, email: email});
    });
    } else {
