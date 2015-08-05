@@ -185,20 +185,116 @@ footer .contained {
   padding: 0;
   color: #656278; }
 
+.md-content form {
+  display: inline-block;
+  margin-right: 5%; }
+
+.musicEventContainer input[type='submit'] {
+  margin-top: 2%;
+  margin-left: 5%;
+  height: 45px;
+  overflow: hidden;
+  text-align: center;
+  width: 90%;
+  font-size: .7em;
+  margin-right: 5%;
+  white-space: normal;
+  background-color: black;
+  color: lightgray;
+  border-radius: 15px;
+  border: none; }
+
+.musicEventContainer input[type='submit']:hover {
+  color: white;
+  -webkit-box-shadow: 0px 0px 5px 3px #f2faf9;
+  -moz-box-shadow: 0px 0px 5px 3px #f2faf9;
+  box-shadow: 0px 0px 5px 3px white; }
+
+.musicEventContainer input[type='submit']:focus {
+  outline: none; }
+
+.foodEventContainer input[type='submit'] {
+  margin-top: 2%;
+  margin-left: 5%;
+  height: 45px;
+  overflow: hidden;
+  text-align: center;
+  width: 90%;
+  font-size: .7em;
+  margin-right: 5%;
+  white-space: normal;
+  background-color: black;
+  color: lightgray;
+  border-radius: 15px;
+  border: none; }
+
+.foodEventContainer input[type='submit']:focus {
+  outline: none; }
+
+.foodEventContainer input[type='submit']:hover {
+  color: white;
+  -webkit-box-shadow: 0px 0px 5px 3px #f2faf9;
+  -moz-box-shadow: 0px 0px 5px 3px #f2faf9;
+  box-shadow: 0px 0px 5px 3px white; }
+
+#modal-8 .md-content {
+  border-radius: 15px;
+  background-color: purple; }
+
+#modal-9 .md-content {
+  border-radius: 15px;
+  background-color: green; }
+
+.md-content .fixed {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 100;
+  background-color: black;
+  height: 120px;
+  border-radius: 15px; }
+
+.md-content .scroll {
+  height: 500px;
+  overflow: scroll;
+  padding-top: 125px; }
+
 input {
   color: #656278; }
 
+<<<<<<< HEAD
 .form {
   text-align: center; }
 
 .form label {
   display: block; }
+=======
+label {
+  margin: 3%; }
+
+form {
+  width: 100%;
+  margin: 0 auto; }
+
+.form {
+  width: 80%; }
+
+.col {
+  width: 100%; }
+
+.form .btn {
+  margin: 1%;
+  margin-top: 5%; }
+
+.btn {
+  margin-left: 1%; }
+>>>>>>> 9e3f7c7749c84b8949987d2d932bc6cb263756e6
 
 .day {
-  margin-left: 2%;
   color: white;
-  padding-left: 2%;
-  width: 15%;
+  padding-left: 3%;
+  padding-right: 3%;
+  width: 20%;
   height: 150px;
   display: inline-block; }
   .day h4, .day p {
@@ -209,6 +305,8 @@ input {
 
 .weather {
   padding: 1%;
+  padding-left: 0;
+  padding-right: 0;
   background: #F24F52;
   margin: auto 0;
   width: auto;
@@ -246,3 +344,6 @@ td {
   padding-right: 5%;
   width: 100px;
   height: 100px; }
+
+.hidden {
+  display: none; }

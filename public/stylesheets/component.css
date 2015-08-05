@@ -24,7 +24,7 @@ perspective effects (not including the modals and the overlay).
 }
 
 .md-modal {
-	overflow-y: scroll;
+	/*overflow-y: scroll;*/
 	position: fixed;
 	top: 50%;
 	left: 50%;
@@ -69,7 +69,7 @@ perspective effects (not including the modals and the overlay).
 
 /* Content styles */
 .md-content {
-	overflow-y: scroll;
+	/*overflow-y: scroll;*/
 	color: #fff;
 	background: #F24F52;
 	position: relative;
@@ -91,6 +91,14 @@ perspective effects (not including the modals and the overlay).
 .md-content > div {
 	padding: 15px 40px 30px;
 	margin: 0;
+	font-weight: 300;
+	font-size: 1.15em;
+}
+
+.md-content > div.form {
+	padding: 0;
+	margin: 0 auto;
+	width: 50%;
 	font-weight: 300;
 	font-size: 1.15em;
 	overflow: scroll;
