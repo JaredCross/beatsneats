@@ -254,3 +254,7 @@ form#logout {
 form#logout #btns-click{
   float: right;
 }
+
+::-webkit-scrollbar {
+   display: none;
+}

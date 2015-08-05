@@ -287,6 +287,9 @@ form#logout {
 form#logout #btns-click {
   float: right; }
 
+::-webkit-scrollbar {
+  display: none; }
+
 input {
   color: #656278; }
 
@@ -317,7 +320,11 @@ form {
   margin-left: 1%; }
 
 #modal-6 .md-content, #modal-7 .md-content {
-  background: #9531B8; }
+  background: #9531B8;
+  border-radius: 15px; }
+
+#modal-6 .md-content h3, #modal-7 .md-content h3 {
+  border-radius: 15px; }
 
 #city {
   text-align: center;
