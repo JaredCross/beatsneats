@@ -20,6 +20,8 @@ block content
         h1 Beats N Eats
         input.form-control(type='text' name='city' id='city' placeholder='city' value=(city)?'#{city}':"")
         input.btn.btn-info(type='submit' value='Go!' )
+        if cityError
+          p#cityError= cityError
       div.weather
         if weather
           for day, index in weather

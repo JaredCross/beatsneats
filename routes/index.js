@@ -41,12 +41,12 @@ router.post('/help', function (req,res,next){
    });
    } else {
      var email = req.session.email
-     res.render('index', {error: "City isn't valid", city: req.body.city, email: email});
+     res.render('index', {cityError: "City is not valid.", city: req.body.city, email: email});
    }
    });
  } else {
    var email = req.session.email
-   res.render('index', {error: "City isn't valid", city: req.body.city, email: email});
+   res.render('index', {cityError: "City is not valid.", city: req.body.city, email: email});
  }
 });
 
