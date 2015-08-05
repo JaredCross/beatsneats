@@ -172,9 +172,7 @@ footer .contained {
   cursor: pointer; }
 
 .nav {
-  position: absolute;
-  right: 0;
-  top: 0; }
+  float: right; }
 
 .hiddenError {
   display: none; }
@@ -278,6 +276,10 @@ section #bttns-click {
   width: 100%;
   margin: 0 auto; }
 
+.welcome {
+  display: inline-block;
+  padding-top: 1%; }
+
 input {
   color: #656278; }
 
@@ -309,6 +311,13 @@ form {
 
 #modal-6 .md-content, #modal-7 .md-content {
   background: #9531B8; }
+
+#city {
+  text-align: center;
+  width: 300px; }
+
+#title {
+  margin-top: 3%; }
 
 .day {
   color: white;
@@ -385,3 +394,6 @@ section #btns-click {
 
 #title {
   display: block; }
+
+#logout button {
+  background: #656278; }

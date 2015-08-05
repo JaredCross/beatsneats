@@ -107,9 +107,7 @@ footer .contained{
 }
 
 .nav {
-  position: absolute;
-  right: 0;
-  top: 0;
+  float: right;
 }
 
 
@@ -242,4 +240,9 @@ section #bttns-click {
 .wrap {
   width: 100%;
   margin: 0 auto;
+}
+
+.welcome {
+  display: inline-block;
+  padding-top: 1%;
 }
