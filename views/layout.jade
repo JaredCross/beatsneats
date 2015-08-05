@@ -13,6 +13,18 @@ html
   body
     header
       .contained
+        if email
+          .welcome
+            span Welcome !{email}
+        .nav
+          if email
+            form#logout(action='/logout' method='link')
+              section(id='btns-click')
+                button(class='btns btns-7 btns-logout icon-key' width='100')
+                  span Logout
+          else
+            span.md-trigger(id='login' data-modal=('modal-6')) login | 
+            span.md-trigger(id='signup' data-modal=('modal-7')) signup 
     block content
     footer
       .contained

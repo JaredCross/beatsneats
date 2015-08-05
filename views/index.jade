@@ -3,16 +3,6 @@ extends layout
 block content
   main 
     div.contained
-      .nav
-        if email
-          span welcome !{email}
-          form#logout(action='/logout' method='link')
-            section(id='btns-click')
-              button(class='btns btns-7 btns-login icon-key')
-                span Logout
-        else
-          span.md-trigger(id='login' data-modal=('modal-6')) login | 
-          span.md-trigger(id='signup' data-modal=('modal-7')) signup 
       form.form-inline.main(action='/help' method='post')
         div.hiddenError
           if error
@@ -21,7 +11,7 @@ block content
           if loginError
             p#handleError2= loginError
         div#title
-          img(src='/images/banner_360.png')
+          img(src='https://files.slack.com/files-pri/T027GBYPB-F08LG1SEM/banner.png' width='800')
         input.form-control(type='text' name='city' id='city' placeholder='city' value=(city)?'#{city}':"")
 
         if cityError

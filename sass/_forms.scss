@@ -1,4 +1,5 @@
 input{
+
   color: $gray;
 }
 
@@ -39,4 +40,13 @@ margin-left: 1%;
 
 #modal-6 .md-content, #modal-7 .md-content {
  background: $purple
+}
+
+#city{
+  text-align: center;
+  width: 300px;
+}
+
+#title{
+  margin-top: 3%;
 }

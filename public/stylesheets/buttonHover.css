@@ -265,7 +265,6 @@
 .btns-login{
 	min-width: 150px;
 	padding: 12.5px 40px 12.5px 75px;
-
 }
 
 .btns-login:before {
@@ -303,4 +302,30 @@
 		opacity: 0;
 		transform: scale(2);
 	}
+}
+
+/*Button Logout*/
+
+.btns-logout{
+	padding: 10px 60px;
+	margin: 0px ;
+	font-size: 16px;
+	line-height: 16px;
+	min-width: 100px;
+	/*padding: 12.5px 40px 12.5px 75px;*/
+}
+
+.btns-logout:before {
+	position: absolute;
+	left: 0;
+	width: 40%;
+	font-size: 160%;
+	line-height: 0.8;
+	color: #fff;
+}
+
+.btns-logout.btns-activated:before, .btns-signup.btns-activated:before {
+	-webkit-animation: scaleUp 0.5s;
+	-moz-animation: scaleUp 0.5s;
+	animation: scaleUp 0.5s;
 }
