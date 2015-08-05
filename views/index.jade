@@ -4,23 +4,26 @@ block content
   main 
     div.contained
       .nav
-        span.md-trigger(id='login' data-modal=('modal-6')) login 
-        span.md-trigger(id='signup' data-modal=('modal-7')) signup 
-      form.main(action='/help' method='post')
+        if email
+          span welcome !{email}
+          a.btn.btn-info(href='/logout') logout
+        else
+          span.md-trigger(id='login' data-modal=('modal-6')) login 
+          span.md-trigger(id='signup' data-modal=('modal-7')) signup 
+      form.form-inline.main(action='/help' method='post')
         div.hiddenError
           if error
             p#handleError= error
         div.hiddenError2
           if loginError
             p#handleError2= loginError
-          
         h1 Where are you traveling?
-        input(type='text' name='city' id='city' placeholder='city' value=(city)?'#{city}':"")
-        input(type='submit' value='Help!' )
+        input.form-control(type='text' name='city' id='city' placeholder='city' value=(city)?'#{city}':"")
+        input.btn.btn-info(type='submit' value='Help!' )
       div.weather
         if weather
           for day, index in weather
-            div(class='md-modal md-effect-1' id=(('modal-'+ (index + 1))))
+            div(class=( email ? 'md-modal md-effect-1' : 'hidden') id=(('modal-'+ (index + 1))))
               div(class='md-content')
                 h3=day[0]
                 div
@@ -34,7 +37,7 @@ block content
                         td
                           span=time[1][1]
                 div.md-close X
-            div.md-trigger.day(data-modal=(('modal-'+ (index + 1))))
+            div.day(class=( email ? 'md-trigger' : undefined), data-modal=(('modal-'+ (index + 1))))
               p.big2=day[1][0][1][0]
               h4=day[0]
               img.image(src=(day[1][0][1][1] === "sky is clear" ? 'images/weather/sunny.png' : day[1][0][1][1] === "light rain" ? '/images/weather/partlyrainy.png' : '/images/weather/clouded.png'))
@@ -45,15 +48,16 @@ block content
             div.loginError
               if loginError
                 p= loginError
-            form(action='/login', method='post')
-              p
+            form.form-inline(action='/login', method='post')
+              .col
                 label(for='email') email 
-                input(type='text' name='email' id='email')
-              p
+              .col
+                input.form-control(type='email' name='email' id='email')
+              .col
                 label(for='password') password 
-                input(type='password' name='password' id='password')
-              p
-                input(type='submit' value='login')
+              .col
+                input.form-control(type='password' name='password' id='password')
+              input.btn.btn-info(type='submit' value='login')
           div.md-close X
       div(class='md-modal md-effect-1' id=('modal-7'))
         div(class='md-content')
@@ -62,18 +66,20 @@ block content
             if error
               p#modalError= error
           div.form
-            form(action='/user/new', method='post')
-              p
+            form.form-inline(action='/user/new', method='post')
+              .col
                 label(for='email') email 
-                input(type='text' name='email' id='email')
-              p
+              .col
+                input.form-control(type='email' name='email' id='email')
+              .col
                 label(for='password') password 
-                input(type='password' name='password' id='password')
-              p
+              .col
+                input.form-control(type='password' name='password' id='password')
+              .col
                 label(for='confirm') confirm password 
-                input(type='password' name='confirm' id='confirm')
-              p
-                input(type='submit' value='signup')
+              .col
+                input.form-control(type='password' name='confirm' id='confirm')
+              input.btn.btn-info(type='submit' value='signup')
           div.md-close X
       if musicEvents
         div.md-trigger(data-modal=('modal-8')) Music
@@ -85,26 +91,27 @@ block content
                 div.event
                   p 
                     a(href=event.uri) #{event.displayName}
-            p= musicEvents[1][0].start.date
-              each event in musicEvents[1]
-                div.event
-                  p 
-                    a(href=event.uri) #{event.displayName}
-            p= musicEvents[2][0].start.date
-              each event in musicEvents[2]
-                div.event
-                  p 
-                    a(href=event.uri) #{event.displayName}
-            p= musicEvents[3][0].start.date
-              each event in musicEvents[3]
-                div.event
-                  p 
-                    a(href=event.uri) #{event.displayName}
-            p= musicEvents[4][0].start.date
-              each event in musicEvents[4]
-                div.event
-                  p 
-                    a(href=event.uri) #{event.displayName}
+            if email
+              p= musicEvents[1][0].start.date
+                each event in musicEvents[1]
+                  div.event
+                    p 
+                      a(href=event.uri) #{event.displayName}
+              p= musicEvents[2][0].start.date
+                each event in musicEvents[2]
+                  div.event
+                    p 
+                      a(href=event.uri) #{event.displayName}
+              p= musicEvents[3][0].start.date
+                each event in musicEvents[3]
+                  div.event
+                    p 
+                      a(href=event.uri) #{event.displayName}
+              p= musicEvents[4][0].start.date
+                each event in musicEvents[4]
+                  div.event
+                    p 
+                      a(href=event.uri) #{event.displayName}
             div.md-close X
       if restaurants
         div#modal-9.md-modal.md-effect-1
