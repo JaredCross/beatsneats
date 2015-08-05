@@ -1,0 +1,302 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon/icomoon.eot');
+	src:url('../fonts/icomoon/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon/icomoon.woff') format('woff'),
+		url('../fonts/icomoon/icomoon.ttf') format('truetype'),
+		url('../fonts/icomoon/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* General button style (reset) */
+.btn {
+	border: none;
+	border-radius: 30px;
+	font-family: unica one;
+	cursor: pointer;
+	padding: 20px 80px;
+	display: inline-block;
+	margin: 15px 30px;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	font-weight: 700;
+	outline: none;
+	position: relative;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+	color: #fff;
+	height: 70px;
+	min-width: 350px;
+	line-height: 28px;
+	font-size: 32px;
+	overflow: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.btn-music{
+	background: #F98A40;
+}
+
+.btn:before {
+	font-family: 'icomoon';
+}
+
+.icon-music:before {
+    content: "\e600";
+}
+
+.btn-music:active {
+	background:#656278;
+	top: 2px;
+}
+
+.btn-music span {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	-webkit-transition: all 0.3s;
+	-webkit-backface-visibility: hidden;
+	-moz-transition: all 0.3s;
+	-moz-backface-visibility: hidden;
+	transition: all 0.3s;
+	backface-visibility: hidden;
+}
+
+.btn-music:before {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	line-height: 1.25;
+	font-size: 180%;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+/* Button 5a */
+.btn-music:hover span {
+	-webkit-transform: translateY(300%);
+	-moz-transform: translateY(300%);
+	-ms-transform: translateY(300%);
+	transform: translateY(300%);
+}
+
+.btn-music:before {
+	left: 0;
+	top: -100%;
+}
+
+.btn-music:hover:before {
+	top: 0;
+}
+
+/*********FOOD******************/
+.btn-food{
+	background: #339691;
+}
+
+.icon-spoon-knife:before {
+    content: "\e601";
+}
+
+.btn-food:active {
+	background: #656278;
+	top: 2px;
+}
+
+.btn-food span {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	-webkit-transition: all 0.3s;
+	-webkit-backface-visibility: hidden;
+	-moz-transition: all 0.3s;
+	-moz-backface-visibility: hidden;
+	transition: all 0.3s;
+	backface-visibility: hidden;
+}
+
+.btn-food:before {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	line-height: 1.25;
+	font-size: 180%;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+/* Button 5a */
+.btn-food:hover span {
+	-webkit-transform: translateY(300%);
+	-moz-transform: translateY(300%);
+	-ms-transform: translateY(300%);
+	transform: translateY(300%);
+}
+
+.btn-food:before {
+	left: 0;
+	top: -100%;
+}
+
+.btn-food:hover:before {
+	top: 0;
+}
+
+
+/* General button style (reset) */
+.btns {
+	border: none;
+	outline: none;
+	border-radius: 22.5px;
+	font-family: unica one;
+	background: none;
+	cursor: pointer;
+	padding: 20px 80px;
+	display: inline-block;
+	margin: 15px 30px;
+	letter-spacing: 1px;
+	font-weight: 700;
+	position: relative;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+	color: #fff;
+	line-height: 26px;
+	font-size: 24px;
+	overflow: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.btns:after {
+	content: '\e607';
+	position: absolute;
+	z-index: -1;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+/* Pseudo elements for icons */
+.btns:before {
+	font-family: 'icomoon';
+}
+
+.icon-key:before {
+	content: "\e604";
+}
+
+.icon-checkmark:before {
+	content: "\e606";
+}
+
+.icon-arrow-right2:before {
+	content: "\e607";
+}
+
+/* Button 7 */
+.btns-7 {
+	background: #FFBC42;
+	padding: 12.5px 40px 12.5px 75px;
+}
+
+/* Button Go */
+.btns-go {
+	overflow: hidden;
+	width: 100px;
+}
+
+.btns-go:before {
+	color: #fff;
+	z-index: 1;
+}
+
+.btns-go:after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	z-index: 0;
+	width: 0;
+	background: #656278;
+	-webkit-transition: none;
+	-moz-transition: none;
+	transition: none;
+}
+
+.btns-go.btns-activated:after {
+	-webkit-animation: fillToRight 0.7s forwards;
+	-moz-animation: fillToRight 0.7s forwards;
+	animation: fillToRight 0.7s forwards;
+}
+
+@keyframes fillToRight {
+	to {
+		width: 100%;
+	}
+}
+
+/* Icon only style */
+
+
+.btns-icon-only:before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	font-size: 26px;
+	line-height: 54px;
+}
+
+/*Button Login */
+
+.btns-login{
+	min-width: 150px;
+	padding: 12.5px 40px 12.5px 75px;
+
+}
+
+.btns-login:before {
+	position: absolute;
+	left: 0;
+	width: 40%;
+	font-size: 160%;
+	line-height: 0.8;
+	color: #fff;
+}
+
+.btns-login.btns-activated:before, .btns-signup.btns-activated:before {
+	-webkit-animation: scaleUp 0.5s;
+	-moz-animation: scaleUp 0.5s;
+	animation: scaleUp 0.5s;
+}
+
+/*Button Sign Up  */
+
+.btns-signup:before {
+	position: absolute;
+	left: 0;
+	width: 40%;
+	font-size: 160%;
+	line-height: 0.8;
+	color: #fff;
+}
+
+@keyframes scaleUp {
+	80% {
+		opacity: 0;
+		transform: scale(2);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(2);
+	}
+}

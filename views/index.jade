@@ -6,7 +6,10 @@ block content
       .nav
         if email
           span welcome !{email}
-          a.btn.btn-info(href='/logout') logout
+          form(action='/logout' method='link')
+            section(id='btns-click')
+              button(class='btns btns-7 btns-login icon-key')
+                span Logout
         else
           span.md-trigger(id='login' data-modal=('modal-6')) login 
           span.md-trigger(id='signup' data-modal=('modal-7')) signup 
@@ -20,6 +23,9 @@ block content
         h1 Beats N Eats
         input.form-control(type='text' name='city' id='city' placeholder='city' value=(city)?'#{city}':"")
         input.btn.btn-info(type='submit' value='Go!' )
+        section(id='btns-click')
+          button(class='btns btns-7 btns-go btns-icon-only icon-arrow-right2' type='submit')
+            span GO!      
       if weather
         div.weather
           for day, index in weather
@@ -44,6 +50,7 @@ block content
       div(class='md-modal md-effect-1' id=('modal-6'))
         div(class='md-content')
           h3 login
+          div.md-close X
           div.form
             div.loginError
               if loginError
@@ -57,8 +64,9 @@ block content
                 label(for='password') password 
               .col
                 input.form-control(type='password' name='password' id='password')
-              input.btn.btn-info(type='submit' value='login')
-          div.md-close X
+              section(id='btns-click')
+                button(class='btns btns-7 btns-login icon-key' type='submit')
+                  span Login          
       div(class='md-modal md-effect-1' id=('modal-7'))
         div(class='md-content')
           h3 signup
@@ -79,10 +87,14 @@ block content
                 label(for='confirm') confirm password 
               .col
                 input.form-control(type='password' name='confirm' id='confirm')
-              input.btn.btn-info(type='submit' value='signup')
+              section(id='btns-click')
+                button(class='btns btns-7 btns-signup icon-checkmark')
+                  span Sign-Up
           div.md-close X
       if musicEvents
-        div.md-trigger(data-modal=('modal-8')) Music
+        div.md-trigger(data-modal=('modal-8'))
+          button(class='btn btn-music icon-music')
+            span Music
         div#modal-8.md-modal.md-effect-1
           div.md-content
             div.fixed
@@ -116,7 +128,9 @@ block content
                       form.musicEventContainer(action=event.uri methos='link' target='_blank')
                         input(type='submit' value=event.displayName)
       if restaurants
-        div.md-trigger(data-modal=('modal-9')) Food
+        div.md-trigger(data-modal=('modal-9'))
+          button(class='btn btn-food icon-spoon-knife')
+            span Food
         div#modal-9.md-modal.md-effect-1
           div.md-content
             div.fixed
