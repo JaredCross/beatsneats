@@ -236,6 +236,18 @@ section #bttns-click {
   float: left;
   display: inline-block;
   padding-top: 1%;
+  float: left
+}
+
+form#logout {
+  display: inline;
+}
+form#logout #btns-click{
+  float: right;
+}
+
+::-webkit-scrollbar {
+   display: none;
 }
 
 form#logout {
