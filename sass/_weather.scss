@@ -73,3 +73,10 @@ td {
 .hidden {
   display: none;
 }
+
+.info {
+  text-align: center;
+  color: $error;
+  padding: 2%;
+  padding-top: 0;
+}

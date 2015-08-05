@@ -124,9 +124,7 @@ footer .contained {
 .main {
   width: 100%;
   margin: 0 auto;
-  text-align: center;
-  padding-top: 2%;
-  padding-bottom: 2%; }
+  text-align: center; }
 
 .musicTile {
   width: 50px;
@@ -277,8 +275,15 @@ section #bttns-click {
   margin: 0 auto; }
 
 .welcome {
+  float: left;
   display: inline-block;
   padding-top: 1%; }
+
+form#logout {
+  display: inline-block; }
+
+form#logout #btns-click {
+  float: right; }
 
 input {
   color: #656278; }
@@ -293,7 +298,6 @@ label {
   margin: 3%; }
 
 form {
-  width: 100%;
   margin: 0 auto; }
 
 .form {
@@ -382,6 +386,12 @@ td {
 .hidden {
   display: none; }
 
+.info {
+  text-align: center;
+  color: #54bde7;
+  padding: 2%;
+  padding-top: 0; }
+
 section #btns-click {
   margin-left: 1%; }
 
@@ -390,6 +400,7 @@ section #btns-click {
   margin-left: 5%; }
 
 #logout section {
+  float: right;
   display: inline-block; }
 
 #title {

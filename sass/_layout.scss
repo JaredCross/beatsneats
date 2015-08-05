@@ -50,8 +50,6 @@ footer .contained{
   width: 100%;
   margin: 0 auto;
   text-align: center;
-  padding-top: 2%;
-  padding-bottom: 2%;
 }
 
 
@@ -133,14 +131,6 @@ footer .contained{
   padding: 0;
   color: $error;
 }
-
-
-// .musicEventContainer {
-//   background-color: $green;
-//   display: inline-block;
-//   overflow: hidden;
-//   width: 90%;
-// }
 
 .md-content form {
   display: inline-block;
@@ -243,6 +233,14 @@ section #bttns-click {
 }
 
 .welcome {
+  float: left;
   display: inline-block;
   padding-top: 1%;
+}
+
+form#logout {
+  display: inline-block;
+}
+form#logout #btns-click {
+ float: right;
 }

@@ -13,12 +13,13 @@ block content
         div#title
           img(src='/images/banner.png' width='800')
         input.form-control(type='text' name='city' id='city' placeholder='city' value=(city)?'#{city}':"")
-
         if cityError
           p#cityError= cityError
         section(id='btns-click')
           button(class='btns btns-7 btns-go btns-icon-only icon-arrow-right2' type='submit')
-            span GO!      
+            span GO!
+      if !email      
+        .info Login to see get more information
       if weather
         div.weather
           for day, index in weather
