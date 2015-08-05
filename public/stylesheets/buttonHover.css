@@ -79,6 +79,7 @@
 
 /* Button 5a */
 .btn-music:hover span {
+	color: white;
 	-webkit-transform: translateY(300%);
 	-moz-transform: translateY(300%);
 	-ms-transform: translateY(300%);
@@ -86,6 +87,7 @@
 }
 
 .btn-music:before {
+	color: white;
 	left: 0;
 	top: -100%;
 }
@@ -133,6 +135,7 @@
 
 /* Button 5a */
 .btn-food:hover span {
+	color: white;
 	-webkit-transform: translateY(300%);
 	-moz-transform: translateY(300%);
 	-ms-transform: translateY(300%);
@@ -140,6 +143,7 @@
 }
 
 .btn-food:before {
+	color: white;
 	left: 0;
 	top: -100%;
 }
