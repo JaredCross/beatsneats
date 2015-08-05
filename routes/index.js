@@ -100,18 +100,6 @@ router.post('/user/new', function(req,res,next){
   }
 });
 
-router.post('/user', function(req,res,next){
-  console.log(req.query);
-  var response = {'hello': 'hi'};
-  req.json(response);
-  // var fullName = req.body.fullName;
-  // var email = req.body.email;
-  // var password = req.body.password;
-  // var hash = bcrypt.hashSync(password, 8);
-  // db.Users.create({email: email, password: hash, favoritesMusic: [], favoritesFood: []}).then(function () {
-  //   req.session.fullName = fullName;
-  //   res.redirect('/');
-  // });
-});
+
 
 module.exports = router;

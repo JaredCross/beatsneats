@@ -188,6 +188,12 @@ footer .contained {
 input {
   color: #656278; }
 
+.form {
+  text-align: center; }
+
+.form label {
+  display: block; }
+
 .day {
   margin-left: 2%;
   color: white;
