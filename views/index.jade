@@ -20,8 +20,8 @@ block content
         h1 Beats N Eats
         input.form-control(type='text' name='city' id='city' placeholder='city' value=(city)?'#{city}':"")
         input.btn.btn-info(type='submit' value='Go!' )
-      div.weather
-        if weather
+      if weather
+        div.weather
           for day, index in weather
             div(class=( email ? 'md-modal md-effect-1' : 'hidden') id=(('modal-'+ (index + 1))))
               div(class='md-content')

@@ -15,9 +15,8 @@
 }
 
 .weather {
-  padding: 1%;
-  padding-left: 0;
-  padding-right: 0;
+  padding: 0;
+  padding-top: 2%;
   background: $pink;
   margin: auto 0;
   width: auto;
@@ -54,7 +53,8 @@ td {
 .big2 {
   float:right;
   color: white;
-  font-size: 200%;
+  margin-top: 1%;
+  font-size: 150%;
   display: inline-block;
 }
 
