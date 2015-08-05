@@ -203,7 +203,7 @@ footer .contained {
   font-size: .7em;
   margin-right: 5%;
   white-space: normal;
-  background-color: black;
+  background-color: #F24F52;
   color: lightgray;
   border-radius: 15px;
   border: none; }
@@ -227,7 +227,7 @@ footer .contained {
   font-size: .7em;
   margin-right: 5%;
   white-space: normal;
-  background-color: black;
+  background-color: #F24F52;
   color: lightgray;
   border-radius: 15px;
   border: none; }
@@ -243,18 +243,18 @@ footer .contained {
 
 #modal-8 .md-content {
   border-radius: 15px;
-  background-color: purple; }
+  background-color: #FFBC42; }
 
 #modal-9 .md-content {
   border-radius: 15px;
-  background-color: green; }
+  background-color: #FFBC42; }
 
 .md-content .fixed {
   position: fixed;
   top: 0px;
   width: 100%;
   z-index: 100;
-  background-color: black;
+  background-color: #F98A40;
   height: 120px;
   border-radius: 15px; }
 
@@ -306,9 +306,8 @@ form {
   cursor: pointer; }
 
 .weather {
-  padding: 1%;
-  padding-left: 0;
-  padding-right: 0;
+  padding: 0;
+  padding-top: 2%;
   background: #F24F52;
   margin: auto 0;
   width: auto;
@@ -338,7 +337,8 @@ td {
 .big2 {
   float: right;
   color: white;
-  font-size: 200%;
+  margin-top: 1%;
+  font-size: 150%;
   display: inline-block; }
 
 .image {

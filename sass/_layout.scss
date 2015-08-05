@@ -153,7 +153,7 @@ footer .contained{
   font-size: .7em;
   margin-right: 5%;
   white-space: normal;
-  background-color: black;
+  background-color: $pink;
   color: lightgray;
   border-radius: 15px;
   border: none;
@@ -180,7 +180,7 @@ footer .contained{
   font-size: .7em;
   margin-right: 5%;
   white-space: normal;
-  background-color: black;
+  background-color: $pink;
   color: lightgray;
   border-radius: 15px;
   border: none;
@@ -198,25 +198,22 @@ footer .contained{
 }
 
 
-
 #modal-8 .md-content {
   border-radius: 15px;
-  background-color: purple;
+  background-color: $yellow;
 }
 
 #modal-9 .md-content {
   border-radius: 15px;
-  background-color: green;
+  background-color: $yellow;
 }
-
-
 
 .md-content .fixed {
   position: fixed;
   top: 0px;
   width: 100%;
   z-index: 100;
-  background-color: black;
+  background-color: #F98A40;
   height: 120px;
   border-radius: 15px;
 }
